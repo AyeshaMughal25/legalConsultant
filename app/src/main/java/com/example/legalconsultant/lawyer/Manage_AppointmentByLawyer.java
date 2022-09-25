@@ -52,6 +52,7 @@ public class Manage_AppointmentByLawyer extends AppCompatActivity {
         day=findViewById(R.id.edt_l_day);
         txt_date = findViewById(R.id.txt_date);
         btn_view_lawyer_tt=findViewById(R.id.btn_view_lawyer_timetable);
+        /*Test github*/
         initDatePicker();
         btn_create = findViewById(R.id.btn_create);
         clientID = getIntent().getIntExtra("CLIENT_ID", 0);
