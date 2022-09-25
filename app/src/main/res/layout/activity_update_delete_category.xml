@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".admin.UpdateDeleteCategoryActivity"
+    android:orientation="vertical"
+    android:background="#555555">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/purewhitebackground"
+        android:padding="20dp">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/logodesign"></ImageView>
+
+        <TextView
+            android:layout_width="184dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="0dp"
+            android:layout_toRightOf="@+id/image"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Legal Consultant"
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:textStyle="bold|italic"
+            ></TextView>
+    </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="585dp"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:background="#ffffff"
+            android:gravity="center"
+            android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/edittext1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+           android:layout_margin="20dp"
+            android:hint="category"
+            android:textColorHint="#000000"
+            android:backgroundTint="#FFFFFF">
+        </EditText>
+
+        <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+  android:layout_margin="20dp"
+    android:gravity="center"
+    android:weightSum="2"
+    android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed"
+        android:background="#555555"
+        android:layout_margin="10dp"
+        android:textColor="#ffffff"
+        android:textAlignment="center"
+        android:text="Update"></Button>
+
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="15sp"
+        android:layout_margin="10dp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed"
+        android:background="#555555"
+        android:textColor="#ffffff"
+        android:textAlignment="center"
+        android:text="DELETE"></Button>
+
+        </LinearLayout>
+</LinearLayout>
+</LinearLayout>

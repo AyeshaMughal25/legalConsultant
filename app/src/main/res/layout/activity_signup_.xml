@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#555555"
+    tools:context=".Signup_Activity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/purewhitebackground"
+            android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/logodesign"></ImageView>
+
+            <TextView
+                android:layout_width="184dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="0dp"
+                android:layout_toRightOf="@+id/image"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Legal Consultant"
+                android:textColor="#000000"
+                android:textSize="25sp"
+                android:textStyle="bold|italic"
+                ></TextView>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:background="#ffffff"
+            android:orientation="vertical">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:gravity="center"
+                android:text="Sign-up"
+                android:textSize="20sp"
+                android:textStyle="bold|italic"></EditText>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/profile"
+                app:civ_border_color="#FFFFFF"
+                app:civ_border_width="2dp" />
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+             android:layout_margin="20dp"
+                android:cursorVisible="true"
+                android:drawableLeft="@drawable/ic_person"
+                android:drawableTint="#000000"
+                android:drawablePadding="5dp"
+                android:hint="Enter your Name"
+                android:inputType="text"
+                android:textColorHint="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:cursorVisible="true"
+                android:drawableLeft="@drawable/ic_email"
+                android:drawableTint="#000000"
+                android:drawablePadding="5dp"
+                android:hint="Enter your Email"
+                android:inputType="text"
+                android:textColorHint="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/psw"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:drawableLeft="@drawable/ic_lock"
+                android:drawableTint="#000000"
+                android:drawablePadding="5dp"
+                android:hint="Password"
+                android:inputType="text|textPassword"
+                android:textColorHint="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/confirmpsw"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:cursorVisible="true"
+                android:drawableLeft="@drawable/ic_lock"
+                android:drawableTint="#000000"
+                android:drawablePadding="5dp"
+                android:hint="Confirm Password"
+                android:inputType="text|textPassword"
+                android:textColorHint="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/cnic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:drawableLeft="@drawable/ic_baseline_credit_card_24"
+                android:drawableTint="#000000"
+                android:drawablePadding="5dp"
+                android:hint="Enter your CNIC"
+                android:inputType="text"
+                android:textColorHint="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/mobnum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:drawableLeft="@drawable/ic_baseline_contact_phone_24"
+                android:drawableTint="#000000"
+                android:drawablePadding="5dp"
+                android:hint="Enter your Contact"
+                android:inputType="text"
+                android:textColorHint="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ctg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Category"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/radiogroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="2"
+
+                >
+
+                <RadioButton
+                    android:id="@+id/radioclient"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="#000000"
+                    android:text="Client"
+                    android:textColor="#000000"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+
+                <RadioButton
+                    android:id="@+id/radiolawyer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="#000000"
+                    android:text="Lawyer"
+                    android:textColor="#000000"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+
+            </RadioGroup>
+
+            <LinearLayout
+                android:id="@+id/LawyerLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <Spinner
+                    android:id="@+id/category_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp" />
+
+                <Spinner
+                    android:id="@+id/court_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp" />
+
+                <EditText
+                    android:id="@+id/edt_lawyer_fee"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:hint="Enter Fee"
+                    android:textColorHint="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/edt_lawyer_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:textColorHint="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:hint="Enter City" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="5dp"
+                    android:weightSum="4">
+
+                    <TextView
+                        android:id="@+id/addpdf"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:layout_margin="5dp"
+                        android:drawableTint="#000000"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorBlack"
+                        android:text="Attach Your Original Document Here"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/attachfile"
+                        android:layout_width="0dp"
+                        android:layout_margin="5dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:tint="@color/colorBlack"
+                        app:srcCompat="@drawable/ic_baseline_attach_file_24"></ImageView>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_sign_up"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="100dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/but_t"
+                android:backgroundTint="#555555"
+                android:gravity="center"
+                android:text="Sign Up"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold|italic" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

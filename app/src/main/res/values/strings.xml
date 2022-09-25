@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">LegalConsultant</string>
+    <string name="invalid_name">Please enter name here</string>
+    <string name="mustbefilled">please fill out name field</string>
+    <string name="invalid_email">Enter Valid email</string>
+    <string name="invalid_password">enter six digit</string>
+    <string name="invalid_confirm_password">password does not match</string>
+</resources>

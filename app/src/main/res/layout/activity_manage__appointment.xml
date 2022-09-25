@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".lawyer.Manage_AppointmentByLawyer"
+    android:background="#555555">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/purewhitebackground"
+        android:padding="20dp">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/logodesign"></ImageView>
+
+        <TextView
+            android:layout_width="184dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="0dp"
+            android:layout_toRightOf="@+id/image"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Legal Consultant"
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:textStyle="bold|italic"
+            ></TextView>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="585dp"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:orientation="vertical">
+    <EditText
+        android:id="@+id/edt_Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:hint="Title"
+        android:textColorHint="#000000"
+        android:textSize="16sp"></EditText>
+
+    <EditText
+        android:id="@+id/edt_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:hint="Description"
+        android:textColorHint="#000000"
+        android:textSize="16sp"></EditText>
+
+    <TextView
+        android:id="@+id/txt_start_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:layout_margin="20dp"
+        android:clickable="true"
+        android:hint="Choose Start Time"
+        android:textColorHint="@color/colorBlack"
+        android:textSize="16sp"></TextView>
+        <TextView
+        android:id="@+id/txt_end_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:layout_margin="20dp"
+        android:clickable="true"
+        android:hint="Choose End Time"
+        android:textColorHint="@color/colorBlack"
+        android:textSize="16sp"></TextView>
+
+        <EditText
+            android:id="@+id/edt_l_day"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:hint="Day"
+            android:textColorHint="#000000"
+            android:textSize="16sp"></EditText>
+
+    <TextView
+        android:id="@+id/txt_date"
+        style="@android:style/Animation.Dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:layout_margin="20dp"
+        android:hint="Choose Date"
+        android:onClick="OpenDatePicker"
+        android:textSize="16sp"
+        android:textColorHint="@color/colorBlack"
+        tools:ignore="OnClick"></TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_create"
+            android:layout_width="221dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:backgroundTint="#555555"
+            android:text="Create"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:textStyle="bold"></Button>
+
+        <Button
+            android:id="@+id/btn_view_lawyer_timetable"
+            android:layout_width="221dp"
+            android:layout_height="62dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:backgroundTint="#555555"
+            android:text="View Lawyer_TimeTable"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:textStyle="bold"></Button>
+    </LinearLayout>
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MyProfile_user"
+    android:orientation="vertical"
+    android:background="#555555">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/purewhitebackground"
+            android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/logodesign"></ImageView>
+
+            <TextView
+                android:layout_width="184dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="0dp"
+                android:layout_toRightOf="@+id/image"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Legal Consultant"
+                android:textColor="#000000"
+                android:textSize="25sp"
+                android:textStyle="bold|italic"
+                ></TextView>
+        </RelativeLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#ffffff"
+   android:layout_margin="20dp"
+    android:layout_gravity="center">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/selected_user_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name:"
+        android:textColor="@color/colorBlack"
+        android:layout_margin="10dp"
+        android:textSize="16sp"
+        android:textStyle="bold"></TextView>
+    <EditText
+        android:id="@+id/user_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_margin="10dp"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        ></EditText>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textSize="16sp"
+        android:textColor="@color/colorBlack"
+        android:layout_margin="10dp"
+        android:textStyle="bold"></TextView>
+    <EditText
+        android:id="@+id/user_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_margin="10dp"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        ></EditText>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Contact"
+        android:textSize="16sp"
+        android:textColor="@color/colorBlack"
+        android:layout_margin="10dp"
+        android:textStyle="bold"></TextView>
+    <EditText
+        android:id="@+id/user_contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_margin="10dp"
+        ></EditText>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cnic"
+        android:textColor="@color/colorBlack"
+        android:layout_margin="10dp"
+        android:textStyle="bold"></TextView>
+     <EditText
+         android:id="@+id/user_cnic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_margin="10dp"
+         android:textColor="@color/colorBlack"
+         android:textStyle="bold"
+        ></EditText>
+<TextView
+    android:id="@+id/change_psw"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint= "Change password"
+    android:textSize="15sp"
+    android:layout_margin="10dp"
+    android:clickable="true"
+    android:textColorHint="@color/colorBlack"
+    android:textStyle="bold"
+    android:textAlignment="center"
+    ></TextView>
+
+    <Button
+        android:id="@+id/update"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:backgroundTint="#555555"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text="Update "
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"></Button>
+</LinearLayout>
+</LinearLayout>
+</ScrollView>

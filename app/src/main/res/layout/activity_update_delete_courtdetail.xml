@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".admin.UpdateDeleteCourtdetail"
+    android:orientation="vertical"
+    android:background="#555555">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/purewhitebackground"
+        android:padding="20dp">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/logodesign"></ImageView>
+
+        <TextView
+            android:layout_width="184dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="0dp"
+            android:layout_toRightOf="@+id/image"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Legal Consultant"
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:textStyle="bold|italic"
+            ></TextView>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="585dp"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:orientation="vertical">
+        <EditText
+            android:id="@+id/edit_court_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Court Name"
+            android:layout_margin="20dp"
+            android:textColorHint="#000000"
+            android:backgroundTint="#FFFFFF">
+        </EditText>
+        <EditText
+            android:id="@+id/edit_court_city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Court City"
+            android:layout_margin="20dp"
+            android:textColorHint="#000000"
+            android:backgroundTint="#FFFFFF">
+        </EditText>
+        <EditText
+            android:id="@+id/edit_court_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:hint="Court Status"
+            android:textColorHint="#000000"
+            android:backgroundTint="#FFFFFF">
+        </EditText>
+
+
+        <Button
+            android:id="@+id/update"
+            android:layout_width="187dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:backgroundTint="#555555"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Update"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            android:textStyle="bold"></Button>
+</LinearLayout>
+</LinearLayout>
