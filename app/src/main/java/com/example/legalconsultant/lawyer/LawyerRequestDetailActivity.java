@@ -163,14 +163,14 @@ public class LawyerRequestDetailActivity extends AppCompatActivity {
             }
         });
 
-        Complete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                updaterequeststatus("C");
-            }
+        Complete.setOnClickListener(v -> updaterequeststatus("C"));
+
+        Chat.setOnClickListener(v -> {
+            String url = "https://api.whatsapp.com/send?phone="+userContact;
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            startActivity(i);
         });
-
-
     }
 
     private void updaterequeststatus(String status) {
