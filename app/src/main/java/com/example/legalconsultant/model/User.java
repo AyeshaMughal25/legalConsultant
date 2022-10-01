@@ -76,13 +76,16 @@ public class User {
     @SerializedName("user_fees")
     @Expose
     private int user_fees;
+    @SerializedName("lawyer_rating")
+    @Expose
+    private int lawyer_rating;
 
     public User() {
     }
 
     public User(int user_id, String user_name, String user_email, String user_cnic,
                 String user_contact, String user_status, String user_image,
-                String court_name, String user_city, int user_fees) {
+                String court_name, String user_city, int user_fees,int lawyer_rating) {
         this.user_id = user_id;
         this.user_name = user_name;
         this.user_email = user_email;
@@ -93,6 +96,7 @@ public class User {
         this.court_name = court_name;
         this.user_city = user_city;
         this.user_fees = user_fees;
+        this.lawyer_rating = lawyer_rating;
     }
 
     public User(int user_id, String user_name, String user_email, String user_cnic,
@@ -106,6 +110,14 @@ public class User {
         this.user_pdf = user_pdf;
         this.user_status = user_status;
         this.user_image = user_image;
+    }
+
+    public int getLawyer_rating() {
+        return lawyer_rating;
+    }
+
+    public void setLawyer_rating(int lawyer_rating) {
+        this.lawyer_rating = lawyer_rating;
     }
 
     public int getUser_id() {

@@ -95,7 +95,8 @@ public class SearchLawyerByUser extends AppCompatActivity {
                                             data.getString("user_image"),
                                             data.getString("court_name"),
                                             data.getString("user_city"),
-                                            data.getInt("user_fees")
+                                            data.getInt("user_fees"),
+                                            data.getInt("lawyer_rating")
                                     ));
                                 }
 

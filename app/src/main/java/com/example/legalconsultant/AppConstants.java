@@ -10,4 +10,5 @@ public class AppConstants {
     public static String Day = "Day";
     public static String lawyer_pass = "lawyer_pass";
     public static String Client_pass = "client_pass";
+    //public static int Category_id = "category_id";
 }

@@ -66,12 +66,9 @@ public class showAppointment extends AppCompatActivity {
 
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject data = jsonArray.getJSONObject(i);
-                                // if (!data.getString("ttt_start_time").equals("appt_start_time")&&
-                                // data.getString("ttt_end_time").equals("appt_end_time"))
-
-
                                 {
                                     timetablesList.add(new Timetable(
+                                            data.getInt("ttt_fk_lawyer_id"),
                                             data.getString("ttt_start_time"),
                                             data.getString("ttt_end_time")
                                     ));
@@ -92,26 +89,42 @@ public class showAppointment extends AppCompatActivity {
 
                                             {
                                                 apptList.add(new Appointment(
+                                                        data.getInt("fk_lawyer_id"),
                                                         data.getString("appt_start_time"),
                                                         data.getString("appt_end_time")
                                                 ));
                                             }
                                         }
                                         ArrayList<Timetable> tempTimeTabe = new ArrayList<>();
-                                        for (int i = 0; i < apptList.size(); i++) {
-                                            if (!timetablesList.get(i).getTtt_start_time().equals(apptList.get(i).getAppt_start_time()) &&
-                                                    timetablesList.get(i).getTtt_end_time().equals(apptList.get(i).getAppt_end_time())) {
-                                                tempTimeTabe.add(timetablesList.get(i));
+                                        for (int i = 0; i < timetablesList.size(); i++) {
+                                            int timeTblLwId = timetablesList.get(i).getTtt_fk_lawyer_id();
+                                            String tt_start_time=timetablesList.get(i).getTtt_start_time();
+                                            String tt_end_time=timetablesList.get(i).getTtt_end_time();
 
+                                            for (int j = 0; j < apptList.size(); j++) {
+                                                int apptTblLwId = apptList.get(j).getFk_lawyer_id();
+                                                String appt_start_time=apptList.get(j).getAppt_start_time();
+                                                String appt_end_time=apptList.get(j).getAppt_end_time();
+                                                if (timeTblLwId == apptTblLwId) {
+                                                    if (!tt_start_time.trim().equals(appt_start_time.trim()) && !tt_end_time.trim().equals(appt_end_time.trim())) {
+                                                        tempTimeTabe.add(timetablesList.get(i));
+                                                        timetablesList.remove(i);
+                                                    }
+                                                }
                                             }
                                         }
                                         TimetableAdapter adapter = new TimetableAdapter(tempTimeTabe,
                                                 showAppointment.this);
                                         LV_TT.setAdapter(adapter);
+                                        adapter.notifyDataSetChanged();
                                     } catch (Exception ex) {
 
                                     }
+                                    /*if (!timetablesList.get(i).getTtt_start_time().equals(apptList.get(i).getAppt_start_time()) &&
+                                            timetablesList.get(i).getTtt_end_time().equals(apptList.get(i).getAppt_end_time())) {
+                                        tempTimeTabe.add(timetablesList.get(i));
 
+                                    }*/
                                     Log.i("APPT_DATA", response.body().toString());
 
                                 }

@@ -42,7 +42,8 @@ public class Timetable {
 
     }
 
-    public Timetable(String ttt_start_time, String ttt_end_time) {
+    public Timetable(int fk_id,String ttt_start_time, String ttt_end_time) {
+        this.ttt_fk_lawyer_id = fk_id;
         this.ttt_start_time=ttt_start_time;
         this.ttt_end_time=ttt_end_time;
     }

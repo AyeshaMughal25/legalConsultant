@@ -63,7 +63,8 @@ public class Appointment {
 
     }
 
-    public Appointment(String appt_start_time, String appt_end_time) {
+    public Appointment(int fk_lawyer_id,String appt_start_time, String appt_end_time) {
+        this.fk_lawyer_id = fk_lawyer_id;
         this.appt_start_time = appt_start_time;
         this.appt_end_time = appt_end_time;
     }

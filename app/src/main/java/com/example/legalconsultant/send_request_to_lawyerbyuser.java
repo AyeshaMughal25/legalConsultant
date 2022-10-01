@@ -39,12 +39,12 @@ import retrofit2.Response;
 
 public class send_request_to_lawyerbyuser extends AppCompatActivity {
 
-    int userID, Fee;
+    int userID, Fee,rating;
     String name, email, cnic, contact, status, image, CourtName, CityName;
     CircleImageView selected_lawyer_image;
     TextView tv_selected_lawyer_name, tv_selected_lawyer_contact, tv_selected_lawyer_cnic,
             tv_selected_lawyer_email, choose_pdf, tv_selected_lawyer_courtname, tv_selected_lawyer_city,
-            tv_selected_lawyer_fee;
+            tv_selected_lawyer_fee,Tv_selected_lawyer_rating;
     Button btn_send_Req;
     File file;
     private Uri pdfData;
@@ -65,6 +65,7 @@ public class send_request_to_lawyerbyuser extends AppCompatActivity {
         tinyDB = new TinyDB(this);
         userID = getIntent().getIntExtra("USER_ID", 0);
         Fee = getIntent().getIntExtra("USER_FEE", 0);
+        rating = getIntent().getIntExtra("RATING",0);
         name = getIntent().getStringExtra("USER_NAME");
         CourtName = getIntent().getStringExtra("COURT_NAME");
         CityName = getIntent().getStringExtra("USER_CITY");
@@ -74,6 +75,7 @@ public class send_request_to_lawyerbyuser extends AppCompatActivity {
         status = getIntent().getStringExtra("USER_STATUS");
         image = getIntent().getStringExtra("USER_IMAGE");
         tv_selected_lawyer_courtname = findViewById(R.id.tv_selected_lawyer_courtname);
+        Tv_selected_lawyer_rating = findViewById(R.id.tv_lawyer_rating);
         selected_lawyer_image = findViewById(R.id.selected_lawyer_image);
         tv_selected_lawyer_name = findViewById(R.id.tv_selected_lawyer_name);
         tv_selected_lawyer_contact = findViewById(R.id.tv_selected_lawyer_contact);
@@ -93,6 +95,7 @@ public class send_request_to_lawyerbyuser extends AppCompatActivity {
         tv_selected_lawyer_city.setText(CityName);
         tv_selected_lawyer_courtname.setText(CourtName);
         tv_selected_lawyer_fee.setText(String.valueOf(Fee));
+        Tv_selected_lawyer_rating.setText(String.valueOf(rating));
 
         choose_pdf.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,7 +141,8 @@ public class send_request_to_lawyerbyuser extends AppCompatActivity {
         Call<Request> call = service.SendRequest(
                 LawyerID,
                 ClientID,
-                body);
+                body
+                );
 
         call.enqueue(new Callback<Request>() {
             @Override
