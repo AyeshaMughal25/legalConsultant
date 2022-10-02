@@ -164,7 +164,6 @@ public class LawyerRequestDetailActivity extends AppCompatActivity {
         });
 
         Complete.setOnClickListener(v -> updaterequeststatus("C"));
-
         Chat.setOnClickListener(v -> {
             String url = "https://api.whatsapp.com/send?phone="+userContact;
             Intent i = new Intent(Intent.ACTION_VIEW);
