@@ -2,7 +2,7 @@ package com.example.legalconsultant.util;
 
 public class EndPoint {
 
-    public static final String BASE_URL = "http://192.168.100.32/LawyerAppAPI/";
+    public static final String BASE_URL = "http://192.168.100.32LawyerAppAPI/";
     public static final String IMAGE_URL = "http://192.168.100.32/LawyerAppAPI/api/";
 
     public static final String LOGIN_URL = BASE_URL + "api/LoginUserAPI.php";
