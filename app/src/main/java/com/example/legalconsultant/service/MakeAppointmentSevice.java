@@ -15,6 +15,7 @@ public interface MakeAppointmentSevice {
     @FormUrlEncoded
     @POST(EndPoint.Make_Appointment_URL)
     Call<Appointment> makeappointment(
+            @Field("ttt_id") int ttt_id,
             @Field("appt_title") String appt_title,
             @Field("appt_description") String appt_description,
             @Field("fk_lawyer_id") int fk_lawyer_id,

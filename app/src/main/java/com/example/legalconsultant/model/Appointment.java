@@ -4,6 +4,9 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Appointment {
+    @SerializedName("ttt_id")
+    @Expose
+    private int ttt_id;
     @SerializedName("appt_id")
     @Expose
     private int appt_id;
@@ -69,9 +72,11 @@ public class Appointment {
         this.appt_end_time = appt_end_time;
     }
 
-    public Appointment(int appt_id, String appt_title, String appt_description,
+    public Appointment(int appt_id,int ttt_id, String appt_title, String appt_description,
                        int fk_customer_id, int fk_request_id, String appt_start_time, String appt_end_time, String appt_day,String appt_date, String appt_status, String created_Date_Time) {
+
         this.appt_id = appt_id;
+        this.ttt_id = ttt_id;
         this.appt_title = appt_title;
         this.appt_description = appt_description;
         this.fk_customer_id = fk_customer_id;
@@ -82,6 +87,14 @@ public class Appointment {
         this.appt_date = appt_date;
         this.appt_status = appt_status;
         this.created_Date_Time = created_Date_Time;
+    }
+
+    public int getTtt_id() {
+        return ttt_id;
+    }
+
+    public void setTtt_id(int ttt_id) {
+        this.ttt_id = ttt_id;
     }
 
     public String getAppt_start_time() {

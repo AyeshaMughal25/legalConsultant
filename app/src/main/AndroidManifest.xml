@@ -19,7 +19,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="q">
-        <activity android:name=".UpdatePasswordByLawyer"></activity>
+        <activity android:name=".FeedBackListActivity"></activity>
+        <activity android:name=".FeedBackFromUserActivity" />
+        <activity android:name=".UpdatePasswordByLawyer" />
         <activity android:name=".UpdatePasswordActivity" />
         <activity
             android:name=".showAppointment"
@@ -38,9 +40,6 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".Manage_AppointmentByUser"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
-            android:name=".ViewApptUserActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".UserRequestDetailActivity"

@@ -19,33 +19,41 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class UpdateDeleteCourtdetail extends AppCompatActivity {
-EditText edit_court_name,edit_court_city,edit_court_status;
-Button update;
-Court court;
+    EditText edit_court_name, edit_court_city, edit_court_status;
+    Button update;
+    Court court;
+    String name,city,status;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_delete_courtdetail);
-        edit_court_name=findViewById(R.id.edit_court_name);
-        edit_court_city=findViewById(R.id.edit_court_city);
-        edit_court_status=findViewById(R.id.edit_court_status);
-        update=findViewById(R.id.update);
+        name = getIntent().getStringExtra("COURT_NAME");
+        city = getIntent().getStringExtra("COURT_CITY");
+        status = getIntent().getStringExtra("COURT_STATUS");
+        edit_court_name = findViewById(R.id.edit_court_name);
+        edit_court_city = findViewById(R.id.edit_court_city);
+        edit_court_status = findViewById(R.id.edit_court_status);
+        update = findViewById(R.id.update);
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 updateCourtdetail();
             }
         });
-
+        edit_court_name.setText(name);
+        edit_court_city.setText(city);
+        edit_court_status.setText(status);
     }
-    public void updateCourtdetail(){
-        court=new Court();
-        ProgressDialog progressDialog=new ProgressDialog(this);
+
+    public void updateCourtdetail() {
+        court = new Court();
+        ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("please wait..");
         progressDialog.show();
-        UpdateCourtDetail service= RetrofitClient.getClient().create(UpdateCourtDetail.class);
-        Call<Court> call = service.UpdateCourtDetail(getIntent().getIntExtra("COURT_ID",0 ),edit_court_name.getText().toString(),
-                edit_court_city.getText().toString(),edit_court_status.getText().toString());
+        UpdateCourtDetail service = RetrofitClient.getClient().create(UpdateCourtDetail.class);
+        Call<Court> call = service.UpdateCourtDetail(getIntent().getIntExtra("COURT_ID", 0), edit_court_name.getText().toString(),
+                edit_court_city.getText().toString(), edit_court_status.getText().toString());
         call.enqueue(new Callback<Court>() {
             @Override
             public void onResponse(Call<Court> call, Response<Court> response) {
@@ -55,7 +63,7 @@ Court court;
                     if (!court.isError()) {
                         Toast.makeText(UpdateDeleteCourtdetail.this,
                                 court.getMessage(), Toast.LENGTH_SHORT).show();
-;
+                        ;
                     } else {
                         Toast.makeText(UpdateDeleteCourtdetail.this,
                                 court.getMessage(), Toast.LENGTH_SHORT).show();

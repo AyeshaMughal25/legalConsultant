@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.example.legalconsultant.Admin_Dashboard;
 import com.example.legalconsultant.ManageUserActivity;
 import com.example.legalconsultant.R;
+import com.example.legalconsultant.adapter.ManageLawyerAdapter;
 import com.example.legalconsultant.adapter.ManageUsersAdapter;
 import com.example.legalconsultant.model.User;
 import com.example.legalconsultant.retrofit.RetrofitClient;
@@ -78,7 +79,7 @@ public class ManageLawyerActivity extends AppCompatActivity {
 
                                 }
 
-                                ManageUsersAdapter adapter = new ManageUsersAdapter(userList, ManageLawyerActivity.this);
+                                ManageLawyerAdapter adapter = new ManageLawyerAdapter(userList, ManageLawyerActivity.this);
                                 view_cat_LV.setAdapter(adapter);
 
                             } catch (JSONException e) {

@@ -50,8 +50,6 @@ public class My_profile_Lawyer extends AppCompatActivity {
         change_psw=findViewById(R.id.change_psw);
         lawyer_fee=findViewById(R.id.lawyer_fee);
         time = findViewById(R.id.time);
-        start_time = findViewById(R.id.start_time);
-        end_time = findViewById(R.id.end_time);
         update = findViewById(R.id.update);
         ShowDetailofUser(tinyDB.getInt("LAWYER_ID"));
         change_psw.setOnClickListener(new View.OnClickListener() {

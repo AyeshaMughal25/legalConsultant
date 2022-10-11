@@ -46,11 +46,11 @@ public class CourtAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         convertView = inflater.inflate(R.layout.item_court, parent, false);
         TextView tv_item_court_name = convertView.findViewById(R.id.tv_item_court_name);
-        tv_item_court_name.setText(courtList.get(position).getCourt_name());
         TextView tv_item_court_city = convertView.findViewById(R.id.tv_item_court_city);
-        tv_item_court_city.setText(courtList.get(position).getCourt_city());
         TextView tv_item_court_status = convertView.findViewById(R.id.tv_item_court_status);
         tv_item_court_status.setText(courtList.get(position).getCourt_status());
+        tv_item_court_city.setText(courtList.get(position).getCourt_city());
+        tv_item_court_name.setText(courtList.get(position).getCourt_name());
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,9 +59,10 @@ public class CourtAdapter extends BaseAdapter {
                         .putExtra("COURT_NAME", courtList.get(position).getCourt_name())
                         .putExtra("COURT_CITY", courtList.get(position).getCourt_city())
                         .putExtra("COURT_STATUS", courtList.get(position).getCourt_status())
-                );
+                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
             }
         });
+
 
 
         return convertView;

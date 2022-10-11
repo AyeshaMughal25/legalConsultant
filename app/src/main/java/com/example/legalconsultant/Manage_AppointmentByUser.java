@@ -36,7 +36,7 @@ public class Manage_AppointmentByUser extends AppCompatActivity {
     Button btn_create, View_all_appointment, btn_view_lawyer_tt;
 
     Appointment appointment;
-    int lawyerID, getReqID;
+    int lawyerID, getReqID,tt_id;
     TinyDB tinyDB;
     ProgressDialog progressDialog;
     DatePickerDialog datePickerDialog;
@@ -55,7 +55,10 @@ public class Manage_AppointmentByUser extends AppCompatActivity {
         btn_create = findViewById(R.id.btn_create);
         tinyDB = new TinyDB(this);
         lawyerID = getIntent().getIntExtra("LAWYER_ID", 0);
-        getReqID = getIntent().getIntExtra("REQUEST_ID", 0);
+       tinyDB.putInt("LAWYER_ID",lawyerID);
+        //getReqID = getIntent().getIntExtra("REQUEST_ID", 0);
+        getReqID=tinyDB.getInt("REQUEST_ID");
+        tt_id = getIntent().getIntExtra("Timetable_ID", 0);
         btn_view_lawyer_tt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -129,7 +132,7 @@ public class Manage_AppointmentByUser extends AppCompatActivity {
         progressDialog.setMessage("please wait...");
         progressDialog.show();
         MakeAppointmentSevice service = RetrofitClient.getClient().create(MakeAppointmentSevice.class);
-        Call<Appointment> call = service.makeappointment(edt_Title.getText().toString(), edt_description.getText().toString(),
+        Call<Appointment> call = service.makeappointment(tt_id,edt_Title.getText().toString(), edt_description.getText().toString(),
                 tinyDB.getInt("CLIENT_ID"), lawyerID, getReqID, txt_start_time.getText().toString(),
                 txt_end_time.getText().toString(),appt_day.getText().toString(), txt_date.getText().toString());
         call.enqueue(new Callback<Appointment>() {

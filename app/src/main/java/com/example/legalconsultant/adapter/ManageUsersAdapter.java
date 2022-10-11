@@ -70,25 +70,9 @@ public class ManageUsersAdapter extends BaseAdapter {
                         .putExtra("USER_CONTACT", usersList.get(position).getUser_contact())
                         .putExtra("USER_TYPE", usersList.get(position).getUser_type())
                         .putExtra("USER_STATUS", usersList.get(position).getUser_status())
-                        .putExtra("USER_PDF", usersList.get(position).getUser_pdf())
                         .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
             }
         });
-     convertView.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            context.startActivity(new Intent(context, ManageLawyerProfile.class)
-                    .putExtra("USER_NAME", usersList.get(position).getUser_name())
-                    .putExtra("USER_ID", usersList.get(position).getUser_id())
-                    .putExtra("USER_EMAIL", usersList.get(position).getUser_email())
-                    .putExtra("USER_CNIC", usersList.get(position).getUser_cnic())
-                    .putExtra("USER_CONTACT", usersList.get(position).getUser_contact())
-                    .putExtra("USER_TYPE", usersList.get(position).getUser_type())
-                    .putExtra("USER_STATUS", usersList.get(position).getUser_status())
-                    .putExtra("USER_PDF", usersList.get(position).getUser_pdf())
-                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-        }
-    });
 
         return convertView;
     }

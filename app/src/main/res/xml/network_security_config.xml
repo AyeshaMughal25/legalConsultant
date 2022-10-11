@@ -4,6 +4,6 @@
         <trust-anchors>
             <certificates src="system" />
         </trust-anchors>
-        <domain includeSubdomains="true">192.168.100.32</domain>
+        <domain includeSubdomains="true">192.168.42.57</domain>
     </domain-config>
 </network-security-config>

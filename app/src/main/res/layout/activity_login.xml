@@ -164,7 +164,35 @@
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginLeft="80dp"
+                android:weightSum="2">
 
+                <TextView
+                    android:layout_width="153dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="chat with me for Any Help and for complain"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="10sp"
+                    android:textStyle="bold"></TextView>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/help_button"
+                    android:layout_width="100dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="40dp"
+                    android:src="@drawable/chatimage"
+                    app:civ_border_color="#FFFFFF"
+                    app:civ_border_width="2dp" />
+            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>

@@ -16,6 +16,8 @@ import com.example.legalconsultant.lawyer.ViewApptLawyerActivity;
 import com.example.legalconsultant.model.Request;
 import com.example.legalconsultant.retrofit.RetrofitClient;
 import com.example.legalconsultant.service.UpdateRequestService;
+import com.example.legalconsultant.util.EndPoint;
+import com.example.legalconsultant.util.TinyDB;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,10 +30,12 @@ public class UserRequestDetailActivity extends AppCompatActivity {
     String userName, userCnic, userContact, getPDF, getStatus;
     Request request;
     int userCheck;
+    TinyDB tinydb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_request_detail);
+        tinydb=new TinyDB(this);
         name = findViewById(R.id.name);
         cnic = findViewById(R.id.cnic);
         contact = findViewById(R.id.contact);
@@ -43,7 +47,6 @@ public class UserRequestDetailActivity extends AppCompatActivity {
         Chat = findViewById(R.id.Chat);
         View_all_appointment = findViewById(R.id.View_all_appointment);
         manage_appointment = findViewById(R.id.manage_appointment);
-
         getRequestID = getIntent().getIntExtra("REQUEST_ID", 0);
         getFkLawyerID = getIntent().getIntExtra("FK_LAWYER_ID", 0);
         userCheck = getIntent().getIntExtra("CHECK", 0);
@@ -156,9 +159,11 @@ View_all_appointment.setOnClickListener(new View.OnClickListener() {
         manage_appointment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Manage_AppointmentByLawyer.class);
+                Intent intent = new Intent(getApplicationContext(), ViewLawyerTimetable.class);
                 intent.putExtra("LAWYER_ID", getFkLawyerID);
-                intent.putExtra("REQUEST_ID", getRequestID);
+
+               /* intent.putExtra("LAWYER_ID", getFkLawyerID);
+                intent.putExtra("REQUEST_ID", getRequestID);*/
                 startActivity(intent);
             }
         });
@@ -170,6 +175,10 @@ View_all_appointment.setOnClickListener(new View.OnClickListener() {
                 i.setData(Uri.parse(url));
                 startActivity(i);
             }
+        });
+        pdf.setOnClickListener(v -> {
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(EndPoint.IMAGE_URL + getPDF));
+            startActivity(browserIntent);
         });
     }
     private void updaterequeststatus(String status) {
@@ -187,7 +196,10 @@ View_all_appointment.setOnClickListener(new View.OnClickListener() {
                     request = response.body();
                     if (!request.isError()) {
                         Toast.makeText(UserRequestDetailActivity.this, request.getMessage(), Toast.LENGTH_SHORT).show();
-                    } else {
+                        Intent intent = new Intent(getApplicationContext(), FeedBackFromUserActivity.class);
+                        intent.putExtra("REQUEST_ID", getRequestID);
+                        intent.putExtra("LAWYER_ID", getFkLawyerID);
+                        startActivity(intent);} else {
                         Toast.makeText(UserRequestDetailActivity.this, request.getMessage(), Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getApplicationContext(), UserRequestDetailActivity.class));
                     }

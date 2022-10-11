@@ -55,5 +55,6 @@ public class UserProfile extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 }

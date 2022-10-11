@@ -70,6 +70,7 @@ public class ViewApptLawyerActivity extends AppCompatActivity {
                                 if (data.getInt("fk_request_id") == getReqID) {
                                     appointmentList.add(new Appointment(
                                             data.getInt("appt_id"),
+                                            data.getInt("ttt_id"),
                                             data.getString("appt_title"),
                                             data.getString("appt_description"),
                                             data.getInt("fk_customer_id"),
@@ -83,7 +84,6 @@ public class ViewApptLawyerActivity extends AppCompatActivity {
                                     ));
                                 }
                             }
-
                             ViewAppoinmentAdaptor adaptor = new ViewAppoinmentAdaptor(appointmentList,
                                     ViewApptLawyerActivity.this, getCHeck);
                             Lawyer_appt_LV.setAdapter(adaptor);
@@ -125,6 +125,7 @@ public class ViewApptLawyerActivity extends AppCompatActivity {
                                 if (data.getInt("fk_request_id") == getReqID) {
                                     appointmentList.add(new Appointment(
                                             data.getInt("appt_id"),
+                                            data.getInt("ttt_id"),
                                             data.getString("appt_title"),
                                             data.getString("appt_description"),
                                             data.getInt("fk_customer_id"),

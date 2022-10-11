@@ -32,6 +32,7 @@ public class Timetable {
     private String message;
 
     public Timetable(String ttt_day, String ttt_start_time, String ttt_end_time, int ttt_fk_lawyer_id) {
+
         this.ttt_day = ttt_day;
         this.ttt_start_time = ttt_start_time;
         this.ttt_end_time = ttt_end_time;
@@ -42,7 +43,8 @@ public class Timetable {
 
     }
 
-    public Timetable(int fk_id,String ttt_start_time, String ttt_end_time) {
+    public Timetable(int ttt_id,int fk_id,String ttt_start_time, String ttt_end_time) {
+        this.ttt_id = ttt_id;
         this.ttt_fk_lawyer_id = fk_id;
         this.ttt_start_time=ttt_start_time;
         this.ttt_end_time=ttt_end_time;

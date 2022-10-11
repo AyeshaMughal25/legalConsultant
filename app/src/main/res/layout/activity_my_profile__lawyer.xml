@@ -107,44 +107,7 @@
                 android:textSize="15sp"
                 android:textStyle="bold"></TextView>
 
-            <TextView
-                    android:id="@+id/time"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Time"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorBlack"></TextView>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
-                    <Button
-                        android:id="@+id/start_time"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Start Time"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:layout_weight="1"
-                        android:textColor="#FFFFFF"
-                        android:backgroundTint="#555555"
-                        android:layout_margin="10dp"
-                        ></Button>
-                    <Button
-                        android:id="@+id/end_time"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="End Time"
-                        android:textSize="16sp"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:textColor="#FFFFFF"
-                        android:backgroundTint="#555555"
-                        android:layout_margin="10dp"></Button>
-                </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

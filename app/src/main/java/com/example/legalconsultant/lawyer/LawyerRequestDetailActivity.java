@@ -12,10 +12,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.legalconsultant.R;
+import com.example.legalconsultant.model.FeedBack;
 import com.example.legalconsultant.model.Request;
 import com.example.legalconsultant.retrofit.RetrofitClient;
 import com.example.legalconsultant.service.UpdateRequestService;
 import com.example.legalconsultant.util.EndPoint;
+import com.example.legalconsultant.util.TinyDB;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -29,11 +31,13 @@ public class LawyerRequestDetailActivity extends AppCompatActivity {
     String userName, userCnic, userContact, getPDF, getStatus;
     Request request;
     int userCheck;
+    TinyDB tinyDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lawyer_request_detail);
+        tinyDB=new TinyDB(this);
         name = findViewById(R.id.name);
         cnic = findViewById(R.id.cnic);
         contact = findViewById(R.id.contact);
@@ -163,7 +167,8 @@ public class LawyerRequestDetailActivity extends AppCompatActivity {
             }
         });
 
-        Complete.setOnClickListener(v -> updaterequeststatus("C"));
+        Complete.setOnClickListener(v ->
+                updaterequeststatus("C"));
         Chat.setOnClickListener(v -> {
             String url = "https://api.whatsapp.com/send?phone="+userContact;
             Intent i = new Intent(Intent.ACTION_VIEW);

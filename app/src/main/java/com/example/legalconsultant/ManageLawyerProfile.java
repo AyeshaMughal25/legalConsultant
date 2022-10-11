@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +16,7 @@ import com.example.legalconsultant.admin.ManageLawyerActivity;
 import com.example.legalconsultant.model.User;
 import com.example.legalconsultant.retrofit.RetrofitClient;
 import com.example.legalconsultant.service.UpdateUserStatus;
+import com.example.legalconsultant.util.EndPoint;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -22,9 +24,9 @@ import retrofit2.Response;
 
 public class ManageLawyerProfile extends AppCompatActivity {
     Button accept, block;
-    TextView username, useremail, usercnic, usercontact;
+    TextView username, useremail, usercnic, usercontact,lawyerpdf;
     ImageView img;
-    String userType, userStatus;
+    String userType, userStatus,getPdf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +38,16 @@ public class ManageLawyerProfile extends AppCompatActivity {
         useremail = findViewById(R.id.lawyermail);
         usercnic = findViewById(R.id.lawyercnic);
         usercontact = findViewById(R.id.lawyercontct);
+        lawyerpdf=findViewById(R.id.lawyerpdf);
         username.setText(getIntent().getStringExtra("USER_NAME"));
         useremail.setText(getIntent().getStringExtra("USER_EMAIL"));
         usercontact.setText(getIntent().getStringExtra("USER_CONTACT"));
         usercnic.setText(getIntent().getStringExtra("USER_CNIC"));
         userType = getIntent().getStringExtra("USER_TYPE");
         userStatus = getIntent().getStringExtra("USER_STATUS");
+        getPdf=getIntent().getStringExtra("USER_PDF");
+        lawyerpdf.setText(getPdf);
+
 
 
         accept.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +67,10 @@ public class ManageLawyerProfile extends AppCompatActivity {
         } else if (userStatus.equals("B")) {
             block.setVisibility(View.GONE);
         }
+        lawyerpdf.setOnClickListener(v -> {
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(EndPoint.IMAGE_URL + getPdf));
+            startActivity(browserIntent);
+        });
     }
 
     public void UpdateUserStatus(String status) {

@@ -188,7 +188,7 @@ return "JAN"; }
         progressDialog.setMessage("please wait...");
         progressDialog.show();
         MakeAppointmentSevice service = RetrofitClient.getClient().create(MakeAppointmentSevice.class);
-        Call<Appointment> call = service.makeappointment(edt_Title.getText().toString(), edt_description.getText().toString(),
+        Call<Appointment> call = service.makeappointment(0,edt_Title.getText().toString(), edt_description.getText().toString(),
                 tinyDB.getInt("LAWYER_ID"), clientID, getReqID, txt_start_time.getText().toString(),
                 txt_end_time.getText().toString(),day.getText().toString(),txt_date.getText().toString());
         call.enqueue(new Callback<Appointment>() {
