@@ -1,29 +1,30 @@
 package com.example.legalconsultant;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.legalconsultant.util.TinyDB;
 
 public class ViewLawyerTimetable extends AppCompatActivity {
-    TextView txt_monday,txt_tuesday,txt_wednesday,txt_thursday,txt_friday,txt_saturday;
+    TextView txt_monday, txt_tuesday, txt_wednesday, txt_thursday, txt_friday, txt_saturday;
     TinyDB tinyDB;
-     int getRequestID, getFkLawyerID;
+    int getRequestID, getFkLawyerID;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_lawyer_timetable);
-        tinyDB=new TinyDB(this);
-        txt_monday=findViewById(R.id.txtvw_monday);
-        txt_tuesday=findViewById(R.id.txtvw_tuesday);
-        txt_wednesday=findViewById(R.id.txtvw_wednesday);
-        txt_thursday=findViewById(R.id.txtvw_thursday);
-        txt_friday=findViewById(R.id.txtvw_friday);
-        txt_saturday=findViewById(R.id.txtvw_saturday);
+        tinyDB = new TinyDB(this);
+        txt_monday = findViewById(R.id.txtvw_monday);
+        txt_tuesday = findViewById(R.id.txtvw_tuesday);
+        txt_wednesday = findViewById(R.id.txtvw_wednesday);
+        txt_thursday = findViewById(R.id.txtvw_thursday);
+        txt_friday = findViewById(R.id.txtvw_friday);
+        txt_saturday = findViewById(R.id.txtvw_saturday);
         getRequestID = getIntent().getIntExtra("REQUEST_ID", 0);
         getFkLawyerID = getIntent().getIntExtra("LAWYER_ID", 0);
 
@@ -31,9 +32,10 @@ public class ViewLawyerTimetable extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ViewLawyerTimetable.this, showAppointment.class);
-                tinyDB.putInt("LAWYER_ID",getFkLawyerID);
-                tinyDB.putInt("REQUEST_ID",getRequestID);
+                tinyDB.putInt("LAWYER_ID", getFkLawyerID);
+                intent.putExtra("LAWYER_ID", getFkLawyerID);
                 intent.putExtra(AppConstants.Day, AppConstants.Mon);
+
                 startActivity(intent);
             }
         });
@@ -41,6 +43,8 @@ public class ViewLawyerTimetable extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ViewLawyerTimetable.this, showAppointment.class);
+                tinyDB.putInt("LAWYER_ID", getFkLawyerID);
+                intent.putExtra("LAWYER_ID", getFkLawyerID);
                 intent.putExtra(AppConstants.Day, AppConstants.Tue);
                 startActivity(intent);
             }
@@ -49,6 +53,8 @@ public class ViewLawyerTimetable extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ViewLawyerTimetable.this, showAppointment.class);
+                tinyDB.putInt("LAWYER_ID", getFkLawyerID);
+                intent.putExtra("LAWYER_ID", getFkLawyerID);
                 intent.putExtra(AppConstants.Day, AppConstants.Wed);
                 startActivity(intent);
             }
@@ -57,6 +63,8 @@ public class ViewLawyerTimetable extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ViewLawyerTimetable.this, showAppointment.class);
+                tinyDB.putInt("LAWYER_ID", getFkLawyerID);
+                intent.putExtra("LAWYER_ID", getFkLawyerID);
                 intent.putExtra(AppConstants.Day, AppConstants.Thu);
                 startActivity(intent);
             }
@@ -65,6 +73,8 @@ public class ViewLawyerTimetable extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ViewLawyerTimetable.this, showAppointment.class);
+                tinyDB.putInt("LAWYER_ID", getFkLawyerID);
+                intent.putExtra("LAWYER_ID", getFkLawyerID);
                 intent.putExtra(AppConstants.Day, AppConstants.Fri);
                 startActivity(intent);
             }
@@ -73,6 +83,8 @@ public class ViewLawyerTimetable extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ViewLawyerTimetable.this, showAppointment.class);
+                tinyDB.putInt("LAWYER_ID", getFkLawyerID);
+                intent.putExtra("LAWYER_ID", getFkLawyerID);
                 intent.putExtra(AppConstants.Day, AppConstants.Sat);
                 startActivity(intent);
             }

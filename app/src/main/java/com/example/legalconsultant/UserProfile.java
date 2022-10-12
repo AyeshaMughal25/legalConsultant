@@ -1,12 +1,13 @@
 package com.example.legalconsultant;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
 
 import com.example.legalconsultant.util.TinyDB;
 
@@ -22,10 +23,9 @@ public class UserProfile extends AppCompatActivity {
         setContentView(R.layout.activity_userprofile);
         tinyDB= new TinyDB(this);
         imgbtn = findViewById(R.id.imgbtn);
-        card1 = (CardView) findViewById(R.id.c1);
-        card2 = (CardView) findViewById(R.id.c2);
-        card3 = (CardView) findViewById(R.id.c3);
-        card4 = (CardView) findViewById(R.id.c4);
+        card1 = findViewById(R.id.c1);
+        card2 = findViewById(R.id.c2);
+        card4 = findViewById(R.id.c4);
         imgbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

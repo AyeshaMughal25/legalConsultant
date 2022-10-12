@@ -1,26 +1,20 @@
 package com.example.legalconsultant;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.legalconsultant.adapter.CheckRequestStatusBYUser;
-import com.example.legalconsultant.adapter.CheckRequestStatusByLawyerAdapter;
-import com.example.legalconsultant.lawyer.LawyerRequestActivity;
-import com.example.legalconsultant.model.Appointment;
 import com.example.legalconsultant.model.Request;
-import com.example.legalconsultant.model.User;
 import com.example.legalconsultant.retrofit.RetrofitClient;
 import com.example.legalconsultant.service.LawyerCheckRequestStatusService;
-import com.example.legalconsultant.service.UserCheckRequestStatusService;
 import com.example.legalconsultant.util.TinyDB;
 import com.google.gson.JsonObject;
 
@@ -109,7 +103,7 @@ public class User_Homepage_myrequest extends AppCompatActivity {
                                             data.getInt("fk_lawyer_id"),
                                             data.getString("pdf"),
                                             data.getString("status"),
-                                            data.getString("date_time")
+                                            data.getString("date_time"),"L"
                                     ));
                                 }
                             }

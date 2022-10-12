@@ -16,7 +16,7 @@ public class Request {
     @SerializedName("pdf")
     @Expose
     private String pdf;
-   @SerializedName("Rating")
+    @SerializedName("Rating")
     @Expose
     private int Rating;
 
@@ -57,7 +57,7 @@ public class Request {
 
     public Request(String user_name, String user_cnic, String user_contact, String user_image,
                    int req_id, int fk_lawyer_id, int fk_client_id,
-                   String pdf,int Rating, String status, String date_time) {
+                   String pdf, int Rating, String status, String date_time) {
         this.user_name = user_name;
         this.user_cnic = user_cnic;
         this.user_contact = user_contact;
@@ -86,11 +86,25 @@ public class Request {
         this.date_time = date_time;
     }
 
+    public Request(String user_name, String user_cnic, String user_contact, String user_image,
+                   int req_id, int fk_lawyer_id,
+                   String pdf, String status, String date_time, String type) {
+        this.user_name = user_name;
+        this.user_cnic = user_cnic;
+        this.user_contact = user_contact;
+        this.user_image = user_image;
+        this.req_id = req_id;
+        this.fk_lawyer_id = fk_lawyer_id;
+        this.pdf = pdf;
+        this.status = status;
+        this.date_time = date_time;
+    }
+
     public Request() {
     }
 
     public Request(int rating) {
-        this.Rating=rating;
+        this.Rating = rating;
 
     }
 

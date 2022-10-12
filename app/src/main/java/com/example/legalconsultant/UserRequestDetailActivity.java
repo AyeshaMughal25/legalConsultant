@@ -1,7 +1,5 @@
 package com.example.legalconsultant;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
@@ -11,7 +9,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.legalconsultant.lawyer.Manage_AppointmentByLawyer;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.legalconsultant.lawyer.ViewApptLawyerActivity;
 import com.example.legalconsultant.model.Request;
 import com.example.legalconsultant.retrofit.RetrofitClient;
@@ -31,11 +30,12 @@ public class UserRequestDetailActivity extends AppCompatActivity {
     Request request;
     int userCheck;
     TinyDB tinydb;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_request_detail);
-        tinydb=new TinyDB(this);
+        tinydb = new TinyDB(this);
         name = findViewById(R.id.name);
         cnic = findViewById(R.id.cnic);
         contact = findViewById(R.id.contact);
@@ -48,6 +48,7 @@ public class UserRequestDetailActivity extends AppCompatActivity {
         View_all_appointment = findViewById(R.id.View_all_appointment);
         manage_appointment = findViewById(R.id.manage_appointment);
         getRequestID = getIntent().getIntExtra("REQUEST_ID", 0);
+        tinydb.putInt("REQUEST_ID", getRequestID);
         getFkLawyerID = getIntent().getIntExtra("FK_LAWYER_ID", 0);
         userCheck = getIntent().getIntExtra("CHECK", 0);
         userName = getIntent().getStringExtra("USER_NAME");
@@ -59,15 +60,15 @@ public class UserRequestDetailActivity extends AppCompatActivity {
         cnic.setText(userCnic);
         contact.setText(userContact);
         pdf.setText(getPDF);
-View_all_appointment.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        Intent intent = new Intent(getApplicationContext(), ViewApptLawyerActivity.class);
-        intent.putExtra("REQUEST_ID", getRequestID);
-        intent.putExtra("CHECK", userCheck);
-        startActivity(intent);
-    }
-});
+        View_all_appointment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ViewApptLawyerActivity.class);
+                intent.putExtra("REQUEST_ID", getRequestID);
+                intent.putExtra("CHECK", userCheck);
+                startActivity(intent);
+            }
+        });
 
         if (userCheck == 2) {
             if (getStatus.equals("P")) {
@@ -170,7 +171,7 @@ View_all_appointment.setOnClickListener(new View.OnClickListener() {
         Chat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = "https://api.whatsapp.com/send?phone="+userContact;
+                String url = "https://api.whatsapp.com/send?phone=" + userContact;
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(url));
                 startActivity(i);
@@ -181,6 +182,7 @@ View_all_appointment.setOnClickListener(new View.OnClickListener() {
             startActivity(browserIntent);
         });
     }
+
     private void updaterequeststatus(String status) {
         request = new Request();
         ProgressDialog progressDialog = new ProgressDialog(this);
@@ -199,7 +201,8 @@ View_all_appointment.setOnClickListener(new View.OnClickListener() {
                         Intent intent = new Intent(getApplicationContext(), FeedBackFromUserActivity.class);
                         intent.putExtra("REQUEST_ID", getRequestID);
                         intent.putExtra("LAWYER_ID", getFkLawyerID);
-                        startActivity(intent);} else {
+                        startActivity(intent);
+                    } else {
                         Toast.makeText(UserRequestDetailActivity.this, request.getMessage(), Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getApplicationContext(), UserRequestDetailActivity.class));
                     }
@@ -215,5 +218,5 @@ View_all_appointment.setOnClickListener(new View.OnClickListener() {
         });
 
 
-        }
     }
+}

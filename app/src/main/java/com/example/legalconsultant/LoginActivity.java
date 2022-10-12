@@ -128,6 +128,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<User> call, Throwable t) {
                 progressDialog.dismiss();
+                t.printStackTrace();
                 Toast.makeText(LoginActivity.this,
                         t.getMessage(), Toast.LENGTH_SHORT).show();
             }

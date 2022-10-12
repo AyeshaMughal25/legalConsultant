@@ -1,30 +1,20 @@
 package com.example.legalconsultant;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
-import com.example.legalconsultant.adapter.GetlawyerByCatAdapter;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.legalconsultant.model.FeedBack;
 import com.example.legalconsultant.model.Request;
-import com.example.legalconsultant.model.User;
 import com.example.legalconsultant.retrofit.RetrofitClient;
 import com.example.legalconsultant.service.FeedBackFromUserService;
-import com.example.legalconsultant.service.GetNoofRatingService;
 import com.example.legalconsultant.util.TinyDB;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +27,7 @@ public class FeedBackFromUserActivity extends AppCompatActivity {
     EditText Subject, feedback;
     RatingBar rating;
     TinyDB tinyDB;
-    int getRequestID,getfklawyerid;
+    int getRequestID, getfklawyerid;
     Button btn_feedback;
     FeedBack FeedBack;
     ArrayList<String> arrIds = new ArrayList<>();
@@ -71,7 +61,7 @@ public class FeedBackFromUserActivity extends AppCompatActivity {
         int i = (int) f;
         String rating = (i == f) ? String.valueOf(i) : String.valueOf(f);
         FeedBackFromUserService service = RetrofitClient.getClient().create(FeedBackFromUserService.class);
-        Call<FeedBack> call = service.feedbackfromuser(getRequestID, tinyDB.getInt("CLIENT_ID"), tinyDB.getInt("LAWYER_ID"),
+        Call<FeedBack> call = service.feedbackfromuser(getRequestID, tinyDB.getInt("CLIENT_ID"), getfklawyerid,
                 Subject.getText().toString(), feedback.getText().toString(), Integer.valueOf(rating));
 
         call.enqueue(new Callback<FeedBack>() {
@@ -81,39 +71,9 @@ public class FeedBackFromUserActivity extends AppCompatActivity {
                     progressDialog.dismiss();
                     FeedBack = response.body();
                     if (!FeedBack.isError()) {
-                        GetNoofRatingService service1 = RetrofitClient.getClient().create(GetNoofRatingService.class);
-                        Call<JsonObject> call1 = service1.getallratingno(getfklawyerid);
-                        call1.enqueue(new Callback<JsonObject>() {
-                            @Override
-                            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                                if (response.isSuccessful()) {
-                                    progressDialog.dismiss();
-                                    if (response.code() == 200) {
-                                        try {
-                                            JSONObject jsonObject = new JSONObject(response.body().getAsJsonObject().toString());
-                                            JSONArray jsonArray = jsonObject.getJSONArray("records");
-
-                                            for (int i = 0; i < jsonArray.length(); i++) {
-                                                JSONObject data = jsonArray.getJSONObject(i);
-                                                {
-                                                    ratingCount += data.getInt("Rating");
-                                                }
-                                            }
-                                            Toast.makeText(FeedBackFromUserActivity.this, ratingCount+"", Toast.LENGTH_SHORT).show();                                        } catch (JSONException e) {
-                                            e.printStackTrace();
-                                        }
-                                    }
-
-                                }
-                            }
-
-                            @Override
-                            public void onFailure(Call<JsonObject> call, Throwable t) {
-
-                            }
-                        });
                         Toast.makeText(FeedBackFromUserActivity.this,
                                 FeedBack.getMessage(), Toast.LENGTH_SHORT).show();
+                        finish();
                     } else {
                         Toast.makeText(FeedBackFromUserActivity.this,
                                 FeedBack.getMessage(), Toast.LENGTH_SHORT).show();
@@ -132,4 +92,6 @@ public class FeedBackFromUserActivity extends AppCompatActivity {
         });
 
     }
+
+
 }
